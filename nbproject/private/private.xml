@@ -5,10 +5,10 @@
         <group>
             <file>file:/home/diego/NetBeansProjects/ProgettoChatTCP/src/progettochattcp/ChatServer.java</file>
             <file>file:/home/diego/NetBeansProjects/ProgettoChatTCP/src/progettochattcp/Host.java</file>
-            <file>file:/home/diego/NetBeansProjects/ProgettoChatTCP/src/progettochattcp/Client.java</file>
             <file>file:/home/diego/NetBeansProjects/ProgettoChatTCP/src/progettochattcp/Ascoltatore.java</file>
-            <file>file:/home/diego/NetBeansProjects/ProgettoChatTCP/src/progettochattcp/Server.java</file>
+            <file>file:/home/diego/NetBeansProjects/ProgettoChatTCP/src/progettochattcp/Client.java</file>
             <file>file:/home/diego/NetBeansProjects/ProgettoChatTCP/src/progettochattcp/Messaggio.java</file>
+            <file>file:/home/diego/NetBeansProjects/ProgettoChatTCP/src/progettochattcp/Server.java</file>
             <file>file:/home/diego/NetBeansProjects/ProgettoChatTCP/src/progettochattcp/ChatClient.java</file>
         </group>
     </open-files>

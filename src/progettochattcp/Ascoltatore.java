@@ -13,14 +13,13 @@ public class Ascoltatore extends Thread {
     
     private Host h;
 
-    public Ascoltatore(Host h) {
+    public Ascoltatore(Host h){
         this.h = h;
     }
     
     public void run(){
-        while(h.isOnline()==true){
-            h.ricevi();
-        }
+        h.ricevi();
+        System.out.println("Esecuzione terminata");
     }
     
 }

@@ -26,9 +26,10 @@ public class Client extends Host {
     }
     
     public void connetti(){
-        try{
+        try {
             connection = new Socket(address,port);
             System.out.println("Connessione aperta");
+            close = false;
             online = true;
         }
         catch(ConnectException e){
@@ -37,7 +38,7 @@ public class Client extends Host {
         catch(UnknownHostException e1){
             System.err.println("Errore DNS!");
         }
-        catch(IOException e2){//
+        catch(IOException e2){
             System.err.println(e2);
             e2.printStackTrace();
         }
