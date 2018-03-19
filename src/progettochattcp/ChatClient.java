@@ -19,18 +19,17 @@ public class ChatClient {
     
     public static void main(String[] args){
         
+        //istanzio il client ed effettuo la richiesta sulla porta 2000 del server
         Client c = new Client(2000,"Default","localhost");
         c.connetti();
+        //istanzio il thread per ricevere i messaggi dal server
         Ascoltatore a = new Ascoltatore(c);
         a.start();
+        //ciclo per inviare e ricevere i messaggi finchè la connesione non si chiude
         while(c.isClose()==false){
             c.invia();
         }
-        try {
-            a.join();
-        } catch (InterruptedException ex) {
-            Logger.getLogger(ChatClient.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        c.chiudi();
         System.out.println("Connessione chiusa");
     }
     

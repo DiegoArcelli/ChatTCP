@@ -35,7 +35,6 @@ public class Host {
     protected Socket connection; //data socket
     protected boolean online;//stato dell'host
     protected String last;
-    protected boolean inviato;
     protected byte buffer[];
     static protected boolean close; //stato connessione
     
@@ -80,7 +79,7 @@ public class Host {
     }
     
     //metodo per ricevere i messaggi
-    public void ricevi(){
+    public void ricevi(){   
         try {
             //ciclo che si ripete finchè non si chiude la connesione
             while(close==false){
@@ -145,6 +144,7 @@ public class Host {
     public void chiudi(){
         try {
             if (connection!=null){
+                //chiudo la conessione
                 connection.close();
                 System.out.println("Connessione chiusa!");
             }
@@ -154,9 +154,11 @@ public class Host {
     }
     
     public void impostaNome(){
+        //inserimento da tastiera del nuovo nome utente
         BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
         System.out.print("Inserisi nome: ");
         try {
+            //assegno il nuovo nome utente
             this.name = input.readLine();
         } catch (IOException ex) {
             Logger.getLogger(Host.class.getName()).log(Level.SEVERE, null, ex);

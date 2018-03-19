@@ -19,18 +19,17 @@ public class ChatServer {
     
     public static void main(String[] args){
         
+        //instanzio il server e lo metto in ascolto sulla porta 2000
         Server s = new Server(2000,"Default");
         s.attendi();
+        //istanzio il thread per ricevere i messaggi dal client
         Ascoltatore a = new Ascoltatore(s);
         a.start();
+        //ciclo per inviare e ricevere i messaggi finchè la connesione non si chiude
         while(s.isClose()==false){
             s.invia();
         }
-        try {
-            a.join();
-        } catch (InterruptedException ex) {
-            Logger.getLogger(ChatServer.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        s.chiudi();
         System.out.println("Connessione chiusa");
     }
 

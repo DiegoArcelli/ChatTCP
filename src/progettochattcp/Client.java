@@ -27,6 +27,7 @@ public class Client extends Host {
     
     public void connetti(){
         try {
+            //apro la connessione con il server sulla porta specificata
             connection = new Socket(address,port);
             System.out.println("Connessione aperta");
             close = false;

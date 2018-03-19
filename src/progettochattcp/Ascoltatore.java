@@ -17,6 +17,7 @@ public class Ascoltatore extends Thread {
         this.h = h;
     }
     
+    //metodo per stare costantemente in recezione di messaggi una volta instaurata la conessione
     public void run(){
         h.ricevi();
         System.out.println("Esecuzione terminata");
