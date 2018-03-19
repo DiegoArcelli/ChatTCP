@@ -25,7 +25,7 @@ public class Server extends Host {
     public void attendi(){ 
         try {
             System.out.println("In attesa di connessioni");
-            //mi metto in ascolto di richieste sulla porta specificata
+            //Il server si mette in ascolto sulla porta specificata
             sSocket = new ServerSocket(port);
             connection = sSocket.accept();
             System.out.println("Connessione stabilita");

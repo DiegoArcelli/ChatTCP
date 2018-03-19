@@ -89,7 +89,7 @@ public class Host {
                 String m = in.readUTF();
                 String f[] = m.split(":");
                 if(f[1].equals(" /file")){
-                    this.riceviFile("out.txt");
+                    this.riceviFile("out.jpg");
                     System.out.println("File ricevuto");
                 }
                 //se l'host è online il messaggio acquisito viene mostrato a schermo
@@ -108,7 +108,7 @@ public class Host {
         try {
             out = new DataOutputStream(connection.getOutputStream());
             inFile = new FileInputStream(nome);
-            buffer = new byte[4096];
+            buffer = new byte[1048576];
             while (inFile.read(buffer) > 0) {
                 out.write(buffer);
             }
@@ -125,8 +125,8 @@ public class Host {
         try {
             in = new DataInputStream(connection.getInputStream());
             outFile = new FileOutputStream(nome);
-            buffer = new byte[4096];
-            int filesize = 15123;
+            buffer = new byte[1048576];
+            int filesize = 1048576;
             int read = 0;
             int totalRead = 0;
             int remaining = filesize;
@@ -135,7 +135,7 @@ public class Host {
                 remaining -= read;
                 outFile.write(buffer, 0, read);
             }
-            out.close();
+            outFile.close();
         } catch (IOException ex) {
             Logger.getLogger(Host.class.getName()).log(Level.SEVERE, null, ex);
         }
