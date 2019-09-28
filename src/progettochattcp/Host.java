@@ -17,6 +17,7 @@ import java.io.InputStreamReader;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
+import java.net.SocketException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -73,9 +74,7 @@ public class Host {
                     }
                 }
             }
-        } catch (IOException ex) {
-            Logger.getLogger(Host.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        } catch (IOException ex) { }
     }
     
     //metodo per ricevere i messaggi
@@ -89,7 +88,7 @@ public class Host {
                 String m = in.readUTF();
                 String f[] = m.split(":");
                 if(f[1].equals(" /file")){
-                    this.riceviFile("out.jpg");
+                    this.riceviFile("out");
                     System.out.println("File ricevuto");
                 }
                 //se l'host è online il messaggio acquisito viene mostrato a schermo
@@ -99,9 +98,7 @@ public class Host {
                     last = m;
                 }
             }
-        } catch (IOException ex) {
-            Logger.getLogger(Host.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        } catch(IOException ex){ }
     }
     
     public void inviaFile(String nome){
@@ -145,12 +142,9 @@ public class Host {
         try {
             if (connection!=null){
                 //chiudo la conessione
-                connection.close();
-                System.out.println("Connessione chiusa!");
+                connection.close();            
             }
-        } catch(IOException e){
-            System.err.println("Errore nella chiusura della connessione!");
-        }
+        } catch(IOException ex){ }
     }
     
     public void impostaNome(){

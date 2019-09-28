@@ -42,10 +42,7 @@ public class Server extends Host {
             //chiudo la conessione
             connection.close();
             sSocket.close();
-        } catch (IOException ex) {
-            System.err.println("Errore nella chiusura della connessione!");
-        }
-        System.out.println("Connessione chiusa!");
+        } catch (IOException ex) { }
     }
     
 

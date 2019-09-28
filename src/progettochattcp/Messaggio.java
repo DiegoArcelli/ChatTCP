@@ -72,7 +72,7 @@ public class Messaggio {
                 testo = mes;
                 break;
         }
-        testo = testo;
+        //testo = testo;
     }
     
     public String getTesto() {
